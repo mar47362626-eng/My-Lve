@@ -18,7 +18,7 @@ body.is-loading { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
-.loader { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; overflow: hidden; background: var(--ink); color: var(--cream); transition: opacity .7s ease, visibility .7s ease; }
+.loader { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; overflow: hidden; background: var(--ink); color: var(--cream); transition: opacity .7s ease, visibility .7s ease; animation: loader-reveal .7s ease 1.7s forwards; }
 .loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .loader__veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(47,33,27,.8), rgba(47,33,27,.28) 55%, rgba(47,33,27,.62)); }
@@ -30,7 +30,7 @@ button { font: inherit; }
 .loader__track { height: 3px; overflow: hidden; background: rgba(255,250,243,.25); }
 .loader__track span { display: block; width: 0; height: 100%; background: var(--yellow); animation: load 1.7s cubic-bezier(.65,0,.35,1) forwards; }
 
-.page { min-height: 100vh; overflow: hidden; opacity: 0; transform: translateY(12px); transition: opacity .8s ease .15s, transform .8s ease .15s; }
+.page { min-height: 100vh; overflow: hidden; opacity: 0; transform: translateY(12px); animation: page-reveal .8s ease 1.85s forwards; transition: opacity .8s ease .15s, transform .8s ease .15s; }
 .page.is-visible { opacity: 1; transform: none; }
 .nav, .hero, .letter, .footer { width: min(1500px, 92vw); margin-inline: auto; }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 2rem 0; }
@@ -89,6 +89,8 @@ h2 { font-size: clamp(2.5rem, 4vw, 4.5rem); }
 @keyframes load { to { width: 100%; } }
 @keyframes pulse { 50% { transform: scale(1.18); } }
 @keyframes lift-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes loader-reveal { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+@keyframes page-reveal { to { opacity: 1; transform: none; } }
 
 @media (max-width: 760px) {
   .nav, .hero, .letter, .footer { width: min(100% - 40px, 560px); }
