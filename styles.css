@@ -30,10 +30,11 @@ button { font: inherit; }
 .loader__track { height: 3px; overflow: hidden; background: rgba(255,250,243,.25); }
 .loader__track span { display: block; width: 0; height: 100%; background: var(--yellow); animation: load 1.7s cubic-bezier(.65,0,.35,1) forwards; }
 
-.page { min-height: 100vh; overflow: hidden; opacity: 0; transform: translateY(12px); animation: page-reveal .8s ease 1.85s forwards; transition: opacity .8s ease .15s, transform .8s ease .15s; }
+.page { min-height: 100vh; overflow: hidden; padding-top: 80px; opacity: 0; animation: page-fade .8s ease 1.85s forwards; transition: opacity .8s ease .15s; }
 .page.is-visible { opacity: 1; transform: none; }
 .nav, .hero, .letter, .footer { width: min(1500px, 92vw); margin-inline: auto; }
-.nav { display: flex; align-items: center; justify-content: space-between; padding: 2rem 0; }
+.site-header { position: fixed; inset: 0 0 auto; z-index: 5; background: var(--cream); }
+.nav { display: flex; align-items: center; justify-content: space-between; width: min(1500px, 92vw); margin-inline: auto; padding: 1.35rem 0; }
 .brand { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .brand span { display: inline-grid; width: 25px; height: 25px; margin-right: .5rem; place-items: center; border-radius: 50%; background: var(--coral); color: var(--cream); font-size: .85rem; }
 .nav__link { color: var(--muted); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
@@ -90,13 +91,14 @@ h2 { font-size: clamp(2.5rem, 4vw, 4.5rem); }
 @keyframes pulse { 50% { transform: scale(1.18); } }
 @keyframes lift-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes loader-reveal { to { opacity: 0; visibility: hidden; pointer-events: none; } }
-@keyframes page-reveal { to { opacity: 1; transform: none; } }
+@keyframes page-fade { to { opacity: 1; } }
 
 @media (max-width: 760px) {
   .nav, .hero, .letter, .footer { width: min(100% - 40px, 560px); }
   .nav { padding: 1.4rem 0; }
   .nav__link { font-size: .62rem; }
   .hero { display: block; min-height: auto; padding: 4.5rem 0 6rem; }
+  .page { padding-top: 66px; }
   h1 { font-size: clamp(4rem, 18vw, 6rem); }
   .hero__visual { min-height: 510px; margin-top: 2.5rem; }
   .image-frame { width: min(350px, 76vw); }
