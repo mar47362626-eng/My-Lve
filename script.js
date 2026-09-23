@@ -12,9 +12,7 @@ const revealPage = () => {
 };
 
 document.body.classList.add('is-loading');
-window.addEventListener('load', () => {
-  window.setTimeout(revealPage, 1700);
-});
+window.setTimeout(revealPage, 1700);
 
 let activeSlide = 0;
 if (slides.length) {
